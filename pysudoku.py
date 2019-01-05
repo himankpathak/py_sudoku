@@ -1,3 +1,19 @@
+from random import *
+from string import *
+
+def initialize():
+	L=[]
+	for a in range(9):
+		l=[]
+		for b in range(9):
+			l.append(a+b+1)
+		L.append(l)
+	for a in range(9):
+		for b in range(9):
+			if(L[a][b]>9):
+				L[a][b]-=9
+
+	print (L)
 
 
 if __name__ == "__main__":
