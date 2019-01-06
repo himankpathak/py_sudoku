@@ -1,19 +1,29 @@
 from random import *
 from string import *
 
+L=[]
+
+def swaprow(a1,a2):
+	for b in range(9):
+		temp=L[a1][b]
+		L[a1][b]=L[a2][b]
+		L[a2][b]=temp
+
 def initialize():
-	L=[]
+	global L
 	for a in range(9):
 		l=[]
 		for b in range(9):
-			l.append(a+b+1)
+			temp=a+b+1
+			if(temp>9):
+				temp-=9
+			l.append(temp)
 		L.append(l)
-	for a in range(9):
-		for b in range(9):
-			if(L[a][b]>9):
-				L[a][b]-=9
 
-	print (L)
+	swaprow(1,3)
+	swaprow(2,6)
+	swaprow(5,7)
+	print(L)
 
 
 if __name__ == "__main__":
@@ -25,3 +35,5 @@ if __name__ == "__main__":
               Every sudoku puzzle has only one possible solution. There can be no ambiguity in Sudoku.
 
     """)
+
+	initialize()
