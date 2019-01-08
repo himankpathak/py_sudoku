@@ -85,18 +85,31 @@ def initialize():
 	mixshuffle()
 	# final shuffling to randomize sudoku
 
-def printb(L):
+def printb(arr):
 	line=chr(95)
 	print("Column =>","1.   2.   3.   4.   5.   6.   7.   8.   9.")
 	print("Row")
 	for a in range(9):
 		print(" ",a+1,".  |",end="")
 		for b in range(9):
-			print(" ",L[a][b],"",end="")
+			print(" ",arr[a][b],"",end="")
 			print("|",end="")
 		print("")
 		print(" "*6,"-"*46)
 
+def createsudoku(L,diff):
+	Lnew=[]
+	diff=6-eval(diff)
+	for a in range(9):
+		l=[]
+		for b in range(9):
+			printcursor=randint(0,5)
+			if(printcursor<diff):
+				l.append(L[a][b])
+			else:
+				l.append(" ")
+		Lnew.append(l)
+	return Lnew
 
 if __name__ == "__main__":
 
@@ -149,5 +162,7 @@ if __name__ == "__main__":
 		else:
 			print("Please enter a valid integer")
 
+	print("\n")
 	initialize()
-	printb(L)
+	Lnew=createsudoku(L,difficulty)
+	printb(Lnew)
