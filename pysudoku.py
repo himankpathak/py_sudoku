@@ -1,7 +1,4 @@
 from random import *
-from string import *
-
-L=[]
 
 def swaprow(a1,a2):
 	for b in range(9):
@@ -111,6 +108,46 @@ if __name__ == "__main__":
     	Every sudoku puzzle has only one possible solution. There can be no ambiguity in Sudoku.
 
     """)
+
+	L=Lnew=[]
+	n=0
+	always=True
+	win=False
+
+	cplayer=input("Enter your name: ")
+	cplayer=cplayer.capitalize()
+	modeselect=input("If you want infinte try mode then enter \"Yes\" else enter \"No\" : ")
+	if(modeselect.upper()=="YES"):
+		infinite=True
+		print("Infinite try mode selected")
+	else:
+		infinite=False
+		print("Normal mode selected")
+
+	while(always==True):
+		difficulty=input("Enter difficulty between 1 to 5 where, 1 is too easy and 5 is too difficult -> ")
+		if(difficulty=="1"):
+			print("Welcome "+cplayer+", Novice difficulty selected")
+			tryno=5
+			break
+		elif(difficulty=="2"):
+			print("Welcome "+cplayer+", Beginner difficulty selected")
+			tryno=10
+			break
+		elif(difficulty=="3"):
+			print("Welcome "+cplayer+", Intermediate difficulty selected")
+			tryno=15
+			break
+		elif(difficulty=="4"):
+			print("Welcome "+cplayer+", Seasoned difficulty selected")
+			tryno=20
+			break
+		elif(difficulty=="5"):
+			print("Welcome "+cplayer+", Expert difficulty selected")
+			tryno=25
+			break
+		else:
+			print("Please enter a valid integer")
 
 	initialize()
 	printb(L)
