@@ -160,13 +160,33 @@ def maingame(L,Lnew):
 if __name__ == "__main__":
 
 	print("""
-	Welcome to SUD0KU v0.1
+	Welcome to SUD0KU v1.2
 
-    Objective: Enter integer number in empty spaces such that each row, column, and
+	Objective: Enter integer number in empty spaces such that each row, column, and
 		nonet can contain each number (typically 1 to 9) exactly once.
-    	Every sudoku puzzle has only one possible solution. There can be no ambiguity in Sudoku.
+		Completely fill all the empty spaces with valid numbers to win the game.
+		Every sudoku puzzle has only one possible solution. There can be no ambiguity in Sudoku.
 
-    """)
+	Instructions: How to play SUD0KU?
+	Select from two available mode
+	1. Infinte mode - unlimted no. of wrongs guesses are permitted in the game
+	2. Normal mode - limted no. of wrongs guesses are permitted in the game
+
+	Select difficulty level:
+	1. Novice
+	2. Beginner
+	3. Intermediate
+	4. Seasoned
+	5. Expert
+
+	Controls:
+	You will be asked to enter three values at every step.
+	First to enter the column no. of the element you want to fill
+	Second, the row no. of the element you want to fill
+	and Third, the value that you think should be placed at the position.
+
+	GOOD LUCK, HAVE FUN!
+	""")
 
 	L=Lnew=[]
 	n=0
