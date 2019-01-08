@@ -99,7 +99,7 @@ def printb(arr):
 
 def createsudoku(L,diff):
 	Lnew=[]
-	diff=6-eval(diff)
+	diff=6-int(diff)
 	for a in range(9):
 		l=[]
 		for b in range(9):
@@ -170,12 +170,11 @@ if __name__ == "__main__":
 
 	L=Lnew=[]
 	n=0
-	always=True
 	win=False
 
 	cplayer=input("Enter your name: ")
 	cplayer=cplayer.capitalize()
-	modeselect=input("If you want infinte try mode then enter \"Yes\" else enter \"No\" : ")
+	modeselect=input("If you want infinite try mode then enter \"Yes\" else enter \"No\" : ")
 	if(modeselect.upper()=="YES"):
 		infinite=True
 		print("Infinite try mode selected")
@@ -183,7 +182,7 @@ if __name__ == "__main__":
 		infinite=False
 		print("Normal mode selected")
 
-	while(always==True):
+	while(True):
 		difficulty=input("Enter difficulty between 1 to 5 where, 1 is too easy and 5 is too difficult -> ")
 		if(difficulty=="1"):
 			print("Welcome "+cplayer+", Novice difficulty selected")
@@ -213,3 +212,9 @@ if __name__ == "__main__":
 	Lnew=createsudoku(L,difficulty)
 	printb(Lnew)
 	maingame(L,Lnew)
+
+	if(win==True):
+		print("You Win!!")
+	elif(win==False):
+		print("You Lose!")
+	print("Thanks for playing",cplayer)
