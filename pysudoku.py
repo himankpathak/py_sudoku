@@ -111,6 +111,52 @@ def createsudoku(L,diff):
 		Lnew.append(l)
 	return Lnew
 
+def maingame(L,Lnew):
+	global win
+	global tryno
+	global infinite
+	while(tryno>=1 or win==False):
+		if(infinite==False):
+			print("You have",tryno,"tries left")
+		while(True):
+			check2=input("Enter Column No. = ")
+			check1=input("Enter Row No. = ")
+			guess=input("Enter the no. you think should be placed = ")
+			if(check1.isdigit()==True and check2.isdigit()==True and guess.isdigit()==True):
+				check1=int(check1)
+				check2=int(check2)
+				guess=int(guess)
+				if(check1>0 and check1<10 and check2>0 and check2<10 and guess>0 and guess<10):
+					break
+				else:
+					print("Enter a valid no.")
+			else:
+				print("Enter a valid no.")
+		check1-=1
+		check2-=1
+		if(L[check1][check2]==Lnew[check1][check2]):
+			print("The no. is already displayed")
+		elif(L[check1][check2]==guess):
+			Lnew[check1][check2]=guess
+			print("You guessed it right!")
+		else:
+			print("Sorry wrong guess, try again")
+			if(infinite==False):
+				tryno-=1
+				print("You have",tryno,"tries left")
+		halt=input()
+		printb(Lnew)
+
+		for a in range(9):
+			for b in range(9):
+				if(L[a][b]==Lnew[a][b]):
+					win=True
+				else:
+					win=False
+					break
+			if(win==False):
+				break
+
 if __name__ == "__main__":
 
 	print("""
@@ -166,3 +212,4 @@ if __name__ == "__main__":
 	initialize()
 	Lnew=createsudoku(L,difficulty)
 	printb(Lnew)
+	maingame(L,Lnew)
